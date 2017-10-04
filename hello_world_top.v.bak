@@ -1,0 +1,19 @@
+`timescale 1 ps / 1ps
+
+module top
+(
+	input clk,
+	output [1:0] LED,
+	input RST,
+	input [1:0] SW
+);
+
+hello_world_qsys u0
+(
+	.clk_clk (clk),
+	.led_external_connection_export (LED),
+	.reset_reset_n (RST),
+	.switch_external_connection_export(SW)
+);
+
+endmodule

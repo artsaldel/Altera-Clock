@@ -1,0 +1,9 @@
+14:10:59 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+
+14:10:59 Build Finished (took 187ms)
+

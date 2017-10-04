@@ -1,0 +1,10 @@
+21:02:44 **** Incremental Build of configuration Nios II for project hello_world_sw ****
+make all 
+Info: Building ../hello_world_sw_bsp/
+make --no-print-directory -C ../hello_world_sw_bsp/
+Makefile:533: Warning: SOPC File ../../hello_world_qsys.sopcinfo could not be found.
+[BSP build complete]
+[hello_world_sw build complete]
+
+21:02:44 Build Finished (took 184ms)
+

@@ -1,0 +1,90 @@
+13:47:25 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:48:39 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:49:35 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:49:55 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:49:55 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:50:08 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:50:26 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:50:27 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:55:38 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:55:38 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+13:57:15 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+14:09:56 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+14:10:30 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+14:10:58 **** Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]
+14:10:59 **** Incremental Build of configuration Nios II for project sw ****
+make all 
+Info: Building /home/arturo/Escritorio/sw_bsp/
+make --no-print-directory -C /home/arturo/Escritorio/sw_bsp/
+[BSP build complete]
+[sw build complete]

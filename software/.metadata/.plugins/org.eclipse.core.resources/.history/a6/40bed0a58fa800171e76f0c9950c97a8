@@ -1,0 +1,31 @@
+
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
+#include "system.h"
+
+#include "sys/alt_stdio.h"
+#include "altera_avalon_pio_regs.h"
+
+void WriteNios(int, int);
+
+int main()
+{
+	alt_putstr("Hello from Nios II!\n");
+
+	/* Event loop never exits. */
+	while (1){
+		WriteNios(SEG1_BASE, 24);
+		WriteNios(SEG2_BASE, 2);
+		WriteNios(SEG3_BASE, 24);
+		WriteNios(SEG4_BASE, 2);
+		WriteNios(SEG5_BASE, 24);
+		WriteNios(SEG6_BASE, 2);
+	}
+	return 0;
+}
+
+void WriteNios(int segm_base, int value){
+	IOWR_ALTERA_AVALON_PIO_DATA(segm_base, value);
+}
+

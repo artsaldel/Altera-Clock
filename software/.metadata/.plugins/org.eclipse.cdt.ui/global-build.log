@@ -1,0 +1,18 @@
+18:05:06 **** Incremental Build of configuration Nios II for project clock_project ****
+make all 
+Info: Building ../clock_project_bsp/
+make --no-print-directory -C ../clock_project_bsp/
+[BSP build complete]
+[clock_project build complete]
+18:05:13 **** Build of configuration Nios II for project clock_project ****
+make all 
+Info: Building ../clock_project_bsp/
+make --no-print-directory -C ../clock_project_bsp/
+[BSP build complete]
+[clock_project build complete]
+18:05:14 **** Incremental Build of configuration Nios II for project clock_project ****
+make all 
+Info: Building ../clock_project_bsp/
+make --no-print-directory -C ../clock_project_bsp/
+[BSP build complete]
+[clock_project build complete]

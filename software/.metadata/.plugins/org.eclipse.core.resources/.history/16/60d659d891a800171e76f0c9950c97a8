@@ -1,0 +1,102 @@
+
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
+#include "system.h"
+#include <stdlib.h>
+#include "sys/alt_stdio.h"
+#include "altera_avalon_pio_regs.h"
+
+#include "priv/alt_busy_sleep.h"
+#include "os/alt_syscall.h"
+
+
+#define NUM0 64
+#define NUM1 121
+#define NUM2 36
+#define NUM3 48
+#define NUM4 25
+#define NUM5 18
+#define NUM6 2
+#define NUM7 120
+#define NUM8 0
+#define NUM9 24
+
+void WriteNios(int, int);
+void ClearClock();
+void InitClock();
+void SetHour(int);
+void SetMinute(int);
+void SetSecond(int);
+void SetSegment(int, int);
+
+int main()
+{
+	alt_putstr("Hello from Nios II!\n");
+	ClearClock();
+	InitClock();
+	return 0;
+}
+
+
+void ClearClock()
+{
+	WriteNios(SEG1_BASE, 255);
+	WriteNios(SEG2_BASE, 255);
+	WriteNios(SEG3_BASE, 255);
+	WriteNios(SEG4_BASE, 255);
+	WriteNios(SEG5_BASE, 255);
+	WriteNios(SEG6_BASE, 255);
+}
+
+void InitClock()
+{
+	int cont = 5092;
+	int seg = 0;
+	int min = 0;
+	int hora = 0;
+
+	while (1){
+
+		alt_busy_sleep(1000000);
+		if (cont == 86400)
+			cont = 0;
+
+		hora = cont / 3600;
+		min = (cont / 60) - (hora * 60);
+		seg = cont%60;
+		printf("%i:%i:%i\n",hora ,min , seg);
+		cont = cont + 1;
+
+	}
+}
+
+void SetHour(int hour)
+{
+	int hour_0 = hour % 10;
+	int hour_1 = hour / 10;
+
+
+}
+
+void SetMinute(int minute)
+{
+	int min_0 = minute % 10;
+	int min_1 = minute / 10;
+}
+
+void SetSecond(int second)
+{
+	int sec_0 = second % 10;
+	int sec_1 = second / 10;
+}
+
+void SetSegment(int base, int value)
+{
+
+}
+
+void WriteNios(int segm_base, int value){
+	IOWR_ALTERA_AVALON_PIO_DATA(segm_base, value);
+}
+

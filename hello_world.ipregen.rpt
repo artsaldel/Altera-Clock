@@ -1,0 +1,292 @@
+IP Upgrade report for hello_world
+Mon Oct  2 19:10:18 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; IP Upgrade Summary                                                         ;
++------------------------------+---------------------------------------------+
+; IP Components Upgrade Status ; Passed - Mon Oct  2 19:10:18 2017           ;
+; Quartus Prime Version        ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                ; hello_world                                 ;
+; Top-level Entity Name        ; hello_world_top                             ;
+; Family                       ; Cyclone V                                   ;
++------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                                                                               ;
++------------------+----------------+---------+-------------------------------------------------+-----------------------+-------------------------------------------------+---------+
+; Entity Name      ; Component Name ; Version ; Original Source File                            ; Generation File Path  ; New Source File                                 ; Message ;
++------------------+----------------+---------+-------------------------------------------------+-----------------------+-------------------------------------------------+---------+
+; hello_world_qsys ; Qsys           ; 15.1    ; hello_world_qsys/synthesis/hello_world_qsys.qip ; hello_world_qsys.qsys ; hello_world_qsys/synthesis/hello_world_qsys.qip ;         ;
++------------------+----------------+---------+-------------------------------------------------+-----------------------+-------------------------------------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "hello_world_qsys.qsys" to "hello_world_qsys.BAK.qsys"
+Info (11902): Backing up file "hello_world_qsys/synthesis/hello_world_qsys.v" to "hello_world_qsys.BAK.v"
+Info (11837): Started upgrading IP component Qsys with file "hello_world_qsys.qsys"
+Info: 2017.10.02.19:09:33 Info: Starting to upgrade the IP cores in the Qsys system
+Info: 2017.10.02.19:09:33 Info: Finished upgrading the ip cores
+Info: 2017.10.02.19:09:45 Info: Saving generation log to /home/arturo/Escritorio/hello_world/hello_world_qsys
+Info: 2017.10.02.19:09:45 Info: Starting: Create simulation model
+Info: 2017.10.02.19:09:46 Info: Loading hello_world
+Info: 2017.10.02.19:09:46 Info: Reading input file
+Info: 2017.10.02.19:09:46 Info: Adding clk [clock_source 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module clk
+Info: 2017.10.02.19:09:46 Info: Adding jtag_uart [altera_avalon_jtag_uart 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module jtag_uart
+Info: 2017.10.02.19:09:46 Info: Adding led [altera_avalon_pio 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module led
+Info: 2017.10.02.19:09:46 Info: Adding nios [altera_nios2_gen2 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module nios
+Info: 2017.10.02.19:09:46 Info: Adding ram [altera_avalon_onchip_memory2 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module ram
+Info: 2017.10.02.19:09:46 Info: Adding switch [altera_avalon_pio 17.0]
+Info: 2017.10.02.19:09:46 Info: Parameterizing module switch
+Info: 2017.10.02.19:09:46 Info: Building connections
+Info: 2017.10.02.19:09:46 Info: Parameterizing connections
+Info: 2017.10.02.19:09:46 Info: Validating
+Info: 2017.10.02.19:09:46 Info: Done reading input file
+Info: 2017.10.02.19:09:47 Info: hello_world_qsys.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: 2017.10.02.19:09:47 Info: hello_world_qsys.switch: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2017.10.02.19:09:47 Info: hello_world_qsys: Generating hello_world_qsys "hello_world_qsys" for SIM_VERILOG
+Info: 2017.10.02.19:09:53 Info: jtag_uart: Starting RTL generation for module 'hello_world_qsys_jtag_uart'
+Info: 2017.10.02.19:09:53 Info: jtag_uart:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=hello_world_qsys_jtag_uart --dir=/tmp/alt7442_7077837113411198266.dir/0001_jtag_uart_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0001_jtag_uart_gen//hello_world_qsys_jtag_uart_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt7442_7077837113411198266.dir/0001_jtag_uart_gen
+Info: 2017.10.02.19:09:54 Info: jtag_uart: Done RTL generation for module 'hello_world_qsys_jtag_uart'
+Info: 2017.10.02.19:09:54 Info: jtag_uart: "hello_world_qsys" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: 2017.10.02.19:09:54 Info: led: Starting RTL generation for module 'hello_world_qsys_led'
+Info: 2017.10.02.19:09:54 Info: led:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=hello_world_qsys_led --dir=/tmp/alt7442_7077837113411198266.dir/0002_led_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0002_led_gen//hello_world_qsys_led_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt7442_7077837113411198266.dir/0002_led_gen
+Info: 2017.10.02.19:09:55 Info: led: Done RTL generation for module 'hello_world_qsys_led'
+2017.10.02.19:09:55 Info: led: "hello_world_qsys" instantiated altera_avalon_pio "led"
+Info: 2017.10.02.19:09:55 Info: nios: "hello_world_qsys" instantiated altera_nios2_gen2 "nios"
+Info: 2017.10.02.19:09:55 Info: ram: Starting RTL generation for module 'hello_world_qsys_ram'
+Info: 2017.10.02.19:09:55 Info: ram:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=hello_world_qsys_ram --dir=/tmp/alt7442_7077837113411198266.dir/0003_ram_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0003_ram_gen//hello_world_qsys_ram_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt7442_7077837113411198266.dir/0003_ram_gen
+Info: 2017.10.02.19:09:55 Info: ram: Done RTL generation for module 'hello_world_qsys_ram'
+Info: 2017.10.02.19:09:55 Info: ram: "hello_world_qsys" instantiated altera_avalon_onchip_memory2 "ram"
+Info: 2017.10.02.19:09:55 Info: switch: Starting RTL generation for module 'hello_world_qsys_switch'
+Info: 2017.10.02.19:09:55 Info: switch:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=hello_world_qsys_switch --dir=/tmp/alt7442_7077837113411198266.dir/0004_switch_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0004_switch_gen//hello_world_qsys_switch_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt7442_7077837113411198266.dir/0004_switch_gen
+Info: 2017.10.02.19:09:55 Info: switch: Done RTL generation for module 'hello_world_qsys_switch'
+Info: 2017.10.02.19:09:55 Info: switch: "hello_world_qsys" instantiated altera_avalon_pio "switch"
+Info: 2017.10.02.19:09:56 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:09:56 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:09:56 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:09:56 Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:09:56 Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:09:57 Info: mm_interconnect_0: "hello_world_qsys" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: 2017.10.02.19:09:57 Info: irq_mapper: "hello_world_qsys" instantiated altera_irq_mapper "irq_mapper"
+Info: 2017.10.02.19:09:57 Info: rst_controller: "hello_world_qsys" instantiated altera_reset_controller "rst_controller"
+Info: 2017.10.02.19:09:57 Info: cpu: Starting RTL generation for module 'hello_world_qsys_nios_cpu'
+Info: 2017.10.02.19:09:57 Info: cpu:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64//eperlcmd -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64//perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=hello_world_qsys_nios_cpu --dir=/tmp/alt7442_7077837113411198266.dir/0007_cpu_gen/ --quartus_bindir=/home/arturo/intelFPGA_lite/17.0/quartus/linux64/ --verilog --config=/tmp/alt7442_7077837113411198266.dir/0007_cpu_gen//hello_world_qsys_nios_cpu_processor_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt7442_7077837113411198266.dir/0007_cpu_gen
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:09:58 (*) Starting Nios II generation
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:09:58 (*)   Checking for plaintext license.
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   Couldn't query license setup in Quartus directory /home/arturo/intelFPGA_lite/17.0/quartus/linux64
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   LM_LICENSE_FILE environment variable is empty
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   Plaintext license not found.
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   No license required to generate encrypted Nios II
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   Elaborating CPU configuration settings
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:00 (*)   Creating all objects for CPU
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:01 (*)   Creating '/tmp/alt7442_7077837113411198266.dir/0007_cpu_gen/
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:01 (*)   Generating RTL from CPU objects
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:01 (*)   Creating plain-text RTL
+Info: 2017.10.02.19:10:02 Info: cpu: # 2017.10.02 19:10:02 (*) Done Nios II generation
+Info: 2017.10.02.19:10:02 Info: cpu: Done RTL generation for module 'hello_world_qsys_nios_cpu'
+Info: 2017.10.02.19:10:02 Info: cpu: "nios" instantiated altera_nios2_gen2_unit "cpu"
+Info: 2017.10.02.19:10:02 Info: nios_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios_data_master_translator"
+Info: 2017.10.02.19:10:02 Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: 2017.10.02.19:10:02 Info: nios_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios_data_master_agent"
+Info: 2017.10.02.19:10:02 Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: 2017.10.02.19:10:02 Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: 2017.10.02.19:10:02 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: 2017.10.02.19:10:02 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: 2017.10.02.19:10:02 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: 2017.10.02.19:10:02 Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: 2017.10.02.19:10:02 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: 2017.10.02.19:10:02 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: 2017.10.02.19:10:02 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: 2017.10.02.19:10:02 Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: 2017.10.02.19:10:02 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation/submodules
+Info: 2017.10.02.19:10:02 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: 2017.10.02.19:10:02 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: 2017.10.02.19:10:02 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation/submodules
+Info: 2017.10.02.19:10:03 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: 2017.10.02.19:10:03 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation/submodules
+Info: 2017.10.02.19:10:03 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: 2017.10.02.19:10:03 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: 2017.10.02.19:10:03 Info: hello_world_qsys: Done "hello_world_qsys" with 28 modules, 47 files
+Info: 2017.10.02.19:10:03 Info: qsys-generate succeeded.
+Info: 2017.10.02.19:10:03 Info: Finished: Create simulation model
+Info: 2017.10.02.19:10:03 Info: Starting: Create Modelsim Project.
+Info: 2017.10.02.19:10:03 Info: sim-script-gen --spd=/home/arturo/Escritorio/hello_world/hello_world_qsys/hello_world_qsys.spd --output-directory=/home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:03 Info: Doing: ip-make-simscript --spd=/home/arturo/Escritorio/hello_world/hello_world_qsys/hello_world_qsys.spd --output-directory=/home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info: Generating the following file(s) for MODELSIM simulator in /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info:     mentor
+Info: 2017.10.02.19:10:05 Info: Generating the following file(s) for VCS simulator in /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info:     synopsys/vcs
+Info: 2017.10.02.19:10:05 Info: Generating the following file(s) for VCSMX simulator in /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info:     synopsys/vcsmx
+Info: 2017.10.02.19:10:05 Info:     synopsys/vcsmx
+Info: 2017.10.02.19:10:05 Info: Generating the following file(s) for NCSIM simulator in /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info:     cadence
+Info: 2017.10.02.19:10:05 Info:     cadence
+Info: 2017.10.02.19:10:05 Info:     cadence
+Info: 2017.10.02.19:10:05 Info:     27 .cds.lib files in cadence/cds_libs
+Info: 2017.10.02.19:10:05 Info: Generating the following file(s) for RIVIERA simulator in /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info:     aldec
+Info: 2017.10.02.19:10:05 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/arturo/Escritorio/hello_world/hello_world_qsys/simulation
+Info: 2017.10.02.19:10:05 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: 2017.10.02.19:10:05 Info: Finished: Create Modelsim Project.
+Info: 2017.10.02.19:10:05 Info: Starting: Create block symbol file (.bsf)
+Info: 2017.10.02.19:10:05 Info: Loading hello_world
+Info: 2017.10.02.19:10:05 Info: Reading input file
+Info: 2017.10.02.19:10:05 Info: Adding clk [clock_source 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module clk
+Info: 2017.10.02.19:10:05 Info: Adding jtag_uart [altera_avalon_jtag_uart 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module jtag_uart
+Info: 2017.10.02.19:10:05 Info: Adding led [altera_avalon_pio 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module led
+Info: 2017.10.02.19:10:05 Info: Adding nios [altera_nios2_gen2 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module nios
+Info: 2017.10.02.19:10:05 Info: Adding ram [altera_avalon_onchip_memory2 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module ram
+Info: 2017.10.02.19:10:05 Info: Adding switch [altera_avalon_pio 17.0]
+Info: 2017.10.02.19:10:05 Info: Parameterizing module switch
+Info: 2017.10.02.19:10:05 Info: Building connections
+Info: 2017.10.02.19:10:05 Info: Parameterizing connections
+Info: 2017.10.02.19:10:05 Info: Validating
+Info: 2017.10.02.19:10:05 Info: Done reading input file
+Info: 2017.10.02.19:10:05 Info: hello_world_qsys.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: 2017.10.02.19:10:05 Info: hello_world_qsys.switch: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2017.10.02.19:10:07 Info: qsys-generate succeeded.
+Info: 2017.10.02.19:10:07 Info: Finished: Create block symbol file (.bsf)
+Info: 2017.10.02.19:10:07 Info:
+Info: 2017.10.02.19:10:07 Info: Starting: Create HDL design files for synthesis
+Info: 2017.10.02.19:10:07 Info: Loading hello_world
+Info: 2017.10.02.19:10:07 Info: Reading input file
+Info: 2017.10.02.19:10:07 Info: Adding clk [clock_source 17.0]
+Info: 2017.10.02.19:10:07 Info: Parameterizing module clk
+Info: 2017.10.02.19:10:07 Info: Adding jtag_uart [altera_avalon_jtag_uart 17.0]
+Info: 2017.10.02.19:10:07 Info: Parameterizing module jtag_uart
+Info: 2017.10.02.19:10:07 Info: Adding led [altera_avalon_pio 17.0]
+Info: 2017.10.02.19:10:07 Info: Parameterizing module led
+Info: 2017.10.02.19:10:07 Info: Adding nios [altera_nios2_gen2 17.0]
+Info: 2017.10.02.19:10:07 Info: Parameterizing module nios
+Info: 2017.10.02.19:10:07 Info: Adding ram [altera_avalon_onchip_memory2 17.0]
+2017.10.02.19:10:07 Info: Parameterizing module ram
+2017.10.02.19:10:07 Info: Adding switch [altera_avalon_pio 17.0]
+2017.10.02.19:10:07 Info: Parameterizing module switch
+Info: 2017.10.02.19:10:07 Info: Building connections
+Info: 2017.10.02.19:10:07 Info: Parameterizing connections
+Info: 2017.10.02.19:10:07 Info: Validating
+Info: 2017.10.02.19:10:07 Info: Done reading input file
+Info: 2017.10.02.19:10:07 Info: hello_world_qsys.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+2017.10.02.19:10:07 Info: hello_world_qsys.switch: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2017.10.02.19:10:08 Info: hello_world_qsys: Generating hello_world_qsys "hello_world_qsys" for QUARTUS_SYNTH
+Info: 2017.10.02.19:10:10 Info: jtag_uart: Starting RTL generation for module 'hello_world_qsys_jtag_uart'
+Info: 2017.10.02.19:10:10 Info: jtag_uart:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=hello_world_qsys_jtag_uart --dir=/tmp/alt7442_7077837113411198266.dir/0026_jtag_uart_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0026_jtag_uart_gen/
+Info: 2017.10.02.19:10:11 Info: jtag_uart: Done RTL generation for module 'hello_world_qsys_jtag_uart'
+Info: 2017.10.02.19:10:11 Info: jtag_uart: "hello_world_qsys" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: 2017.10.02.19:10:11 Info: led: Starting RTL generation for module 'hello_world_qsys_led'
+Info: 2017.10.02.19:10:11 Info: led:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=hello_world_qsys_led --dir=/tmp/alt7442_7077837113411198266.dir/0027_led_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0027_led_gen/
+Info: 2017.10.02.19:10:11 Info: led: Done RTL generation for module 'hello_world_qsys_led'
+Info: 2017.10.02.19:10:11 Info: led: "hello_world_qsys" instantiated altera_avalon_pio "led"
+Info: 2017.10.02.19:10:11 Info: nios: "hello_world_qsys" instantiated altera_nios2_gen2 "nios"
+Info: 2017.10.02.19:10:11 Info: ram: Starting RTL generation for module 'hello_world_qsys_ram'
+Info: 2017.10.02.19:10:11 Info: ram:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=hello_world_qsys_ram --dir=/tmp/alt7442_7077837113411198266.dir/0028_ram_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0028_ram_gen/
+Info: 2017.10.02.19:10:11 Info: ram: Done RTL generation for module 'hello_world_qsys_ram'
+Info: 2017.10.02.19:10:11 Info: ram: "hello_world_qsys" instantiated altera_avalon_onchip_memory2 "ram"
+Info: 2017.10.02.19:10:11 Info: switch: Starting RTL generation for module 'hello_world_qsys_switch'
+Info: 2017.10.02.19:10:11 Info: switch:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/bin/perl -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64/perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/common -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=hello_world_qsys_switch --dir=/tmp/alt7442_7077837113411198266.dir/0029_switch_gen/ --quartus_dir=/home/arturo/intelFPGA_lite/17.0/quartus --verilog --config=/tmp/alt7442_7077837113411198266.dir/0029_switch_gen/
+Info: 2017.10.02.19:10:11 Info: switch: Done RTL generation for module 'hello_world_qsys_switch'
+Info: 2017.10.02.19:10:11 Info: switch: "hello_world_qsys" instantiated altera_avalon_pio "switch"
+Info: 2017.10.02.19:10:12 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:10:12 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:10:12 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:10:12 Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:10:12 Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: 2017.10.02.19:10:12 Info: mm_interconnect_0: "hello_world_qsys" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: 2017.10.02.19:10:12 Info: irq_mapper: "hello_world_qsys" instantiated altera_irq_mapper "irq_mapper"
+Info: 2017.10.02.19:10:12 Info: rst_controller: "hello_world_qsys" instantiated altera_reset_controller "rst_controller"
+Info: 2017.10.02.19:10:12 Info: cpu: Starting RTL generation for module 'hello_world_qsys_nios_cpu'
+Info: 2017.10.02.19:10:12 Info: cpu:   Generation command is [exec /home/arturo/intelFPGA_lite/17.0/quartus/linux64//eperlcmd -I /home/arturo/intelFPGA_lite/17.0/quartus/linux64//perl/lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/europa -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin/perl_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/sopc_builder/bin -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /home/arturo/intelFPGA_lite/17.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=hello_world_qsys_nios_cpu --dir=/tmp/alt7442_7077837113411198266.dir/0032_cpu_gen/ --quartus_bindir=/home/arturo/intelFPGA_lite/17.0/quartus/linux64/ --verilog --config=/tmp/alt7442_7077837113411198266.dir/0032_cpu_gen/
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*) Starting Nios II generation
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Checking for plaintext license.
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Couldn't query license setup in Quartus directory /home/arturo/intelFPGA_lite/17.0/quartus/linux64
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   LM_LICENSE_FILE environment variable is empty
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Plaintext license not found.
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   No license required to generate encrypted Nios II
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Elaborating CPU configuration settings
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:13 (*)   Creating all objects for CPU
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:15 (*)   Generating RTL from CPU objects
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:15 (*)   Creating plain-text RTL
+Info: 2017.10.02.19:10:15 Info: cpu: # 2017.10.02 19:10:15 (*) Done Nios II generation
+Info: 2017.10.02.19:10:15 Info: cpu: Done RTL generation for module 'hello_world_qsys_nios_cpu'
+Info: 2017.10.02.19:10:15 Info: cpu: "nios" instantiated altera_nios2_gen2_unit "cpu"
+Info: 2017.10.02.19:10:15 Info: nios_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios_data_master_translator"
+Info: 2017.10.02.19:10:15 Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: 2017.10.02.19:10:15 Info: nios_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios_data_master_agent"
+Info: 2017.10.02.19:10:16 Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: 2017.10.02.19:10:16 Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: 2017.10.02.19:10:16 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: 2017.10.02.19:10:16 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: 2017.10.02.19:10:16 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: 2017.10.02.19:10:16 Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: 2017.10.02.19:10:16 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: 2017.10.02.19:10:16 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: 2017.10.02.19:10:16 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: 2017.10.02.19:10:16 Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: 2017.10.02.19:10:16 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/synthesis/submodules
+Info: 2017.10.02.19:10:16 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: 2017.10.02.19:10:16 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: 2017.10.02.19:10:16 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/synthesis/submodules
+Info: 2017.10.02.19:10:16 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: 2017.10.02.19:10:16 Info: Reusing file /home/arturo/Escritorio/hello_world/hello_world_qsys/synthesis/submodules
+Info: 2017.10.02.19:10:16 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: 2017.10.02.19:10:16 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: 2017.10.02.19:10:16 Info: hello_world_qsys: Done "hello_world_qsys" with 28 modules, 40 files
+Info: 2017.10.02.19:10:16 Info: qsys-generate succeeded.
+Info: 2017.10.02.19:10:16 Info: Finished: Create HDL design files for synthesis
+Info (11131): Completed upgrading IP component Qsys with file "hello_world_qsys.qsys"
+Info (23030): Evaluation of Tcl script /home/arturo/intelFPGA_lite/17.0/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1063 megabytes
+    Info: Processing ended: Mon Oct  2 19:10:20 2017
+    Info: Elapsed time: 00:01:18
+    Info: Total CPU time (on all processors): 00:02:49
+
+

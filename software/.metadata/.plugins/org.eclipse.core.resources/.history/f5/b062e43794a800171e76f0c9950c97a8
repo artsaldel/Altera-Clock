@@ -1,0 +1,159 @@
+
+#include <stdio.h>
+#include <stdint.h>
+#include <unistd.h>
+#include "system.h"
+#include <stdlib.h>
+#include "sys/alt_stdio.h"
+#include "altera_avalon_pio_regs.h"
+
+#include "priv/alt_busy_sleep.h"
+#include "os/alt_syscall.h"
+
+
+#define NUM0 64
+#define NUM1 121
+#define NUM2 36
+#define NUM3 48
+#define NUM4 25
+#define NUM5 18
+#define NUM6 2
+#define NUM7 120
+#define NUM8 0
+#define NUM9 24
+
+#define SECOND 1000000
+
+void WriteNios(int, int);
+void ClearClock();
+void Clock();
+void Timer(int, int, int);
+void SetHour(int);
+void SetMinute(int);
+void SetSecond(int);
+void SetSegment(int, int);
+
+int main()
+{
+	alt_putstr("Hello from Nios II!\n");
+	ClearClock();
+	//Clock();
+	Timer(0,0,30);
+	return 0;
+}
+
+void Timer(int hour, int minute, int sec)
+{
+	int cont  = hour * 3600 + minute * 60 + sec;
+	int seg = 0;
+	int min = 0;
+	int hora = 0;
+	while (cont >= 0){
+		alt_busy_sleep(1000000);
+		hora = cont / 3600;
+		min = (cont / 60) - (hora * 60);
+		seg = cont % 60;
+		SetHour(hora);
+		SetMinute(min);
+		SetSecond(seg);
+		cont = cont - 1;
+	}
+}
+
+void Clock()
+{
+	int cont = 86390;
+	int seg = 0;
+	int min = 0;
+	int hora = 0;
+	while (1){
+
+		alt_busy_sleep(1000000);
+		if (cont == 86400)
+			cont = 0;
+		hora = cont / 3600;
+		min = (cont / 60) - (hora * 60);
+		seg = cont % 60;
+		SetHour(hora);
+		SetMinute(min);
+		SetSecond(seg);
+		cont = cont + 1;
+
+	}
+}
+
+void SetHour(int hour)
+{
+	int hour_0 = hour % 10;
+	int hour_1 = hour / 10;
+	SetSegment(SEG5_BASE, hour_0);
+	SetSegment(SEG6_BASE, hour_1);
+}
+
+void SetMinute(int minute)
+{
+	int min_0 = minute % 10;
+	int min_1 = minute / 10;
+	SetSegment(SEG3_BASE, min_0);
+	SetSegment(SEG4_BASE, min_1);
+}
+
+void SetSecond(int second)
+{
+	int sec_0 = second % 10;
+	int sec_1 = second / 10;
+	SetSegment(SEG1_BASE, sec_0);
+	SetSegment(SEG2_BASE, sec_1);
+}
+
+void SetSegment(int base, int value)
+{
+	switch (value)
+	{
+		case 1:
+			WriteNios(base, NUM1);
+			break;
+		case 2:
+			WriteNios(base, NUM2);
+			break;
+		case 3:
+			WriteNios(base, NUM3);
+			break;
+		case 4:
+			WriteNios(base, NUM4);
+			break;
+		case 5:
+			WriteNios(base, NUM5);
+			break;
+		case 6:
+			WriteNios(base, NUM6);
+			break;
+		case 7:
+			WriteNios(base, NUM7);
+			break;
+		case 8:
+			WriteNios(base, NUM8);
+			break;
+		case 9:
+			WriteNios(base, NUM9);
+			break;
+		case 0:
+			WriteNios(base, NUM0);
+			break;
+	}
+}
+
+void ClearClock()
+{
+	WriteNios(SEG1_BASE, 255);
+	WriteNios(SEG2_BASE, 255);
+	WriteNios(SEG3_BASE, 255);
+	WriteNios(SEG4_BASE, 255);
+	WriteNios(SEG5_BASE, 255);
+	WriteNios(SEG6_BASE, 255);
+}
+
+void WriteNios(int segm_base, int value){
+	IOWR_ALTERA_AVALON_PIO_DATA(segm_base, value);
+}
+
