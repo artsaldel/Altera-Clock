@@ -1,18 +1,56 @@
-18:05:06 **** Incremental Build of configuration Nios II for project clock_project ****
+16:10:06 **** Build of configuration Nios II for project clock ****
 make all 
-Info: Building ../clock_project_bsp/
-make --no-print-directory -C ../clock_project_bsp/
+Info: Building ../clock_bsp/
+make --no-print-directory -C ../clock_bsp/
 [BSP build complete]
-[clock_project build complete]
-18:05:13 **** Build of configuration Nios II for project clock_project ****
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc -xc -MP -MMD -c -I../clock_bsp//HAL/inc -I../clock_bsp/ -I../clock_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world_small.o hello_world_small.c
+hello_world_small.c: In function 'blinker':
+hello_world_small.c:97:3: warning: implicit declaration of function 'SetNullHour' [-Wimplicit-function-declaration]
+   SetNullHour();
+   ^
+hello_world_small.c:98:3: warning: implicit declaration of function 'SetNullMinute' [-Wimplicit-function-declaration]
+   SetNullMinute();
+   ^
+hello_world_small.c:99:3: warning: implicit declaration of function 'SetNullSecond' [-Wimplicit-function-declaration]
+   SetNullSecond();
+   ^
+hello_world_small.c: At top level:
+hello_world_small.c:107:6: warning: conflicting types for 'SetNullHour'
+ void SetNullHour()
+      ^
+hello_world_small.c:97:3: note: previous implicit declaration of 'SetNullHour' was here
+   SetNullHour();
+   ^
+hello_world_small.c:113:6: warning: conflicting types for 'SetNullMinute'
+ void SetNullMinute()
+      ^
+hello_world_small.c:98:3: note: previous implicit declaration of 'SetNullMinute' was here
+   SetNullMinute();
+   ^
+hello_world_small.c:119:6: warning: conflicting types for 'SetNullSecond'
+ void SetNullSecond()
+      ^
+hello_world_small.c:99:3: note: previous implicit declaration of 'SetNullSecond' was here
+   SetNullSecond();
+   ^
+Info: Linking clock.elf
+nios2-elf-g++  -T'../clock_bsp//linker.x' -msys-crt0='../clock_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../clock_bsp/  -msmallc  -Wl,-Map=clock.map   -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o clock.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert clock.elf --thread_model hal --cpu_name nios --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name hello_world_qsys --quartus_project_dir "/home/arturo/Escritorio/AlteraClock" --jdi /home/arturo/Escritorio/AlteraClock/software/clock_bsp/../../hello_world.jdi --sopcinfo /home/arturo/Escritorio/AlteraClock/software/clock_bsp/../../hello_world_qsys.sopcinfo
+Info: (clock.elf) 4612 Bytes program size (code + initialized data).
+Info:             11 KBytes free for stack + heap.
+Info: Creating clock.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source clock.elf >clock.objdump
+[clock build complete]
+16:10:19 **** Build of configuration Nios II for project clock ****
 make all 
-Info: Building ../clock_project_bsp/
-make --no-print-directory -C ../clock_project_bsp/
+Info: Building ../clock_bsp/
+make --no-print-directory -C ../clock_bsp/
 [BSP build complete]
-[clock_project build complete]
-18:05:14 **** Incremental Build of configuration Nios II for project clock_project ****
+[clock build complete]
+16:10:20 **** Incremental Build of configuration Nios II for project clock ****
 make all 
-Info: Building ../clock_project_bsp/
-make --no-print-directory -C ../clock_project_bsp/
+Info: Building ../clock_bsp/
+make --no-print-directory -C ../clock_bsp/
 [BSP build complete]
-[clock_project build complete]
+[clock build complete]

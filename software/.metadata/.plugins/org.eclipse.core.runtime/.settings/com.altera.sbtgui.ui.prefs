@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=/home/arturo/Escritorio/hello_world/software/clock_project
-newSoftwareExampleWizardPage.sopcinfoFile=/home/arturo/Escritorio/hello_world/hello_world_qsys.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=/home/arturo/Escritorio/hello_world/software/clock_project_bsp
+newSoftwareExampleWizardPage.defaultLocation=/home/arturo/Escritorio/AlteraClock/software/clock
+newSoftwareExampleWizardPage.sopcinfoFile=/home/arturo/Escritorio/AlteraClock/hello_world_qsys.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=/home/arturo/Escritorio/AlteraClock/software/clock_bsp

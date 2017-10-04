@@ -1,0 +1,9 @@
+16:10:20 **** Incremental Build of configuration Nios II for project clock ****
+make all 
+Info: Building ../clock_bsp/
+make --no-print-directory -C ../clock_bsp/
+[BSP build complete]
+[clock build complete]
+
+16:10:20 Build Finished (took 116ms)
+

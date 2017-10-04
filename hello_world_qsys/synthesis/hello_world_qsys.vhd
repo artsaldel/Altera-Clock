@@ -8,18 +8,34 @@ use IEEE.numeric_std.all;
 
 entity hello_world_qsys is
 	port (
-		clk_clk                         : in  std_logic                    := '0'; --                      clk.clk
-		reset_reset_n                   : in  std_logic                    := '0'; --                    reset.reset_n
-		seg1_external_connection_export : out std_logic_vector(6 downto 0);        -- seg1_external_connection.export
-		seg2_external_connection_export : out std_logic_vector(6 downto 0);        -- seg2_external_connection.export
-		seg3_external_connection_export : out std_logic_vector(6 downto 0);        -- seg3_external_connection.export
-		seg4_external_connection_export : out std_logic_vector(6 downto 0);        -- seg4_external_connection.export
-		seg5_external_connection_export : out std_logic_vector(6 downto 0);        -- seg5_external_connection.export
-		seg6_external_connection_export : out std_logic_vector(6 downto 0)         -- seg6_external_connection.export
+		button1_external_connection_export : in  std_logic                    := '0'; -- button1_external_connection.export
+		button2_external_connection_export : in  std_logic                    := '0'; -- button2_external_connection.export
+		button3_external_connection_export : in  std_logic                    := '0'; -- button3_external_connection.export
+		button4_external_connection_export : in  std_logic                    := '0'; -- button4_external_connection.export
+		clk_clk                            : in  std_logic                    := '0'; --                         clk.clk
+		leds_external_connection_export    : out std_logic_vector(4 downto 0);        --    leds_external_connection.export
+		reset_reset_n                      : in  std_logic                    := '0'; --                       reset.reset_n
+		seg1_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg1_external_connection.export
+		seg2_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg2_external_connection.export
+		seg3_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg3_external_connection.export
+		seg4_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg4_external_connection.export
+		seg5_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg5_external_connection.export
+		seg6_external_connection_export    : out std_logic_vector(6 downto 0);        --    seg6_external_connection.export
+		switch_external_connection_export  : in  std_logic                    := '0'  --  switch_external_connection.export
 	);
 end entity hello_world_qsys;
 
 architecture rtl of hello_world_qsys is
+	component hello_world_qsys_button1 is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic                     := 'X'              -- export
+		);
+	end component hello_world_qsys_button1;
+
 	component hello_world_qsys_jtag_uart is
 		port (
 			clk            : in  std_logic                     := 'X';             -- clk
@@ -34,6 +50,19 @@ architecture rtl of hello_world_qsys is
 			av_irq         : out std_logic                                         -- irq
 		);
 	end component hello_world_qsys_jtag_uart;
+
+	component hello_world_qsys_leds is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
+			out_port   : out std_logic_vector(4 downto 0)                      -- export
+		);
+	end component hello_world_qsys_leds;
 
 	component hello_world_qsys_nios is
 		port (
@@ -112,6 +141,14 @@ architecture rtl of hello_world_qsys is
 			nios_instruction_master_waitrequest     : out std_logic;                                        -- waitrequest
 			nios_instruction_master_read            : in  std_logic                     := 'X';             -- read
 			nios_instruction_master_readdata        : out std_logic_vector(31 downto 0);                    -- readdata
+			button1_s1_address                      : out std_logic_vector(1 downto 0);                     -- address
+			button1_s1_readdata                     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			button2_s1_address                      : out std_logic_vector(1 downto 0);                     -- address
+			button2_s1_readdata                     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			button3_s1_address                      : out std_logic_vector(1 downto 0);                     -- address
+			button3_s1_readdata                     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			button4_s1_address                      : out std_logic_vector(1 downto 0);                     -- address
+			button4_s1_readdata                     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			jtag_uart_avalon_jtag_slave_address     : out std_logic_vector(0 downto 0);                     -- address
 			jtag_uart_avalon_jtag_slave_write       : out std_logic;                                        -- write
 			jtag_uart_avalon_jtag_slave_read        : out std_logic;                                        -- read
@@ -119,6 +156,11 @@ architecture rtl of hello_world_qsys is
 			jtag_uart_avalon_jtag_slave_writedata   : out std_logic_vector(31 downto 0);                    -- writedata
 			jtag_uart_avalon_jtag_slave_waitrequest : in  std_logic                     := 'X';             -- waitrequest
 			jtag_uart_avalon_jtag_slave_chipselect  : out std_logic;                                        -- chipselect
+			leds_s1_address                         : out std_logic_vector(1 downto 0);                     -- address
+			leds_s1_write                           : out std_logic;                                        -- write
+			leds_s1_readdata                        : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			leds_s1_writedata                       : out std_logic_vector(31 downto 0);                    -- writedata
+			leds_s1_chipselect                      : out std_logic;                                        -- chipselect
 			nios_debug_mem_slave_address            : out std_logic_vector(8 downto 0);                     -- address
 			nios_debug_mem_slave_write              : out std_logic;                                        -- write
 			nios_debug_mem_slave_read               : out std_logic;                                        -- read
@@ -163,7 +205,9 @@ architecture rtl of hello_world_qsys is
 			seg6_s1_write                           : out std_logic;                                        -- write
 			seg6_s1_readdata                        : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			seg6_s1_writedata                       : out std_logic_vector(31 downto 0);                    -- writedata
-			seg6_s1_chipselect                      : out std_logic                                         -- chipselect
+			seg6_s1_chipselect                      : out std_logic;                                        -- chipselect
+			switch_s1_address                       : out std_logic_vector(1 downto 0);                     -- address
+			switch_s1_readdata                      : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
 	end component hello_world_qsys_mm_interconnect_0;
 
@@ -307,12 +351,27 @@ architecture rtl of hello_world_qsys is
 	signal mm_interconnect_0_seg6_s1_address                             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:seg6_s1_address -> seg6:address
 	signal mm_interconnect_0_seg6_s1_write                               : std_logic;                     -- mm_interconnect_0:seg6_s1_write -> mm_interconnect_0_seg6_s1_write:in
 	signal mm_interconnect_0_seg6_s1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:seg6_s1_writedata -> seg6:writedata
+	signal mm_interconnect_0_switch_s1_readdata                          : std_logic_vector(31 downto 0); -- switch:readdata -> mm_interconnect_0:switch_s1_readdata
+	signal mm_interconnect_0_switch_s1_address                           : std_logic_vector(1 downto 0);  -- mm_interconnect_0:switch_s1_address -> switch:address
+	signal mm_interconnect_0_button1_s1_readdata                         : std_logic_vector(31 downto 0); -- button1:readdata -> mm_interconnect_0:button1_s1_readdata
+	signal mm_interconnect_0_button1_s1_address                          : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button1_s1_address -> button1:address
+	signal mm_interconnect_0_button2_s1_readdata                         : std_logic_vector(31 downto 0); -- button2:readdata -> mm_interconnect_0:button2_s1_readdata
+	signal mm_interconnect_0_button2_s1_address                          : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button2_s1_address -> button2:address
+	signal mm_interconnect_0_button3_s1_readdata                         : std_logic_vector(31 downto 0); -- button3:readdata -> mm_interconnect_0:button3_s1_readdata
+	signal mm_interconnect_0_button3_s1_address                          : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button3_s1_address -> button3:address
+	signal mm_interconnect_0_button4_s1_readdata                         : std_logic_vector(31 downto 0); -- button4:readdata -> mm_interconnect_0:button4_s1_readdata
+	signal mm_interconnect_0_button4_s1_address                          : std_logic_vector(1 downto 0);  -- mm_interconnect_0:button4_s1_address -> button4:address
+	signal mm_interconnect_0_leds_s1_chipselect                          : std_logic;                     -- mm_interconnect_0:leds_s1_chipselect -> leds:chipselect
+	signal mm_interconnect_0_leds_s1_readdata                            : std_logic_vector(31 downto 0); -- leds:readdata -> mm_interconnect_0:leds_s1_readdata
+	signal mm_interconnect_0_leds_s1_address                             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:leds_s1_address -> leds:address
+	signal mm_interconnect_0_leds_s1_write                               : std_logic;                     -- mm_interconnect_0:leds_s1_write -> mm_interconnect_0_leds_s1_write:in
+	signal mm_interconnect_0_leds_s1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:leds_s1_writedata -> leds:writedata
 	signal irq_mapper_receiver0_irq                                      : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	signal nios_irq_irq                                                  : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> nios:irq
 	signal rst_controller_reset_out_reset                                : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:nios_reset_reset_bridge_in_reset_reset, ram:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                            : std_logic;                     -- rst_controller:reset_req -> [nios:reset_req, ram:reset_req, rst_translator:reset_req_in]
 	signal reset_reset_n_ports_inv                                       : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
-	signal nios_debug_reset_request_reset_ports_inv                      : std_logic;                     -- nios_debug_reset_request_reset:inv -> [seg2:reset_n, seg3:reset_n, seg4:reset_n, seg5:reset_n, seg6:reset_n]
+	signal nios_debug_reset_request_reset_ports_inv                      : std_logic;                     -- nios_debug_reset_request_reset:inv -> [button1:reset_n, button2:reset_n, button3:reset_n, button4:reset_n, leds:reset_n, seg2:reset_n, seg3:reset_n, seg4:reset_n, seg5:reset_n, seg6:reset_n, switch:reset_n]
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv  : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
 	signal mm_interconnect_0_seg1_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_seg1_s1_write:inv -> seg1:write_n
@@ -321,9 +380,46 @@ architecture rtl of hello_world_qsys is
 	signal mm_interconnect_0_seg4_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_seg4_s1_write:inv -> seg4:write_n
 	signal mm_interconnect_0_seg5_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_seg5_s1_write:inv -> seg5:write_n
 	signal mm_interconnect_0_seg6_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_seg6_s1_write:inv -> seg6:write_n
+	signal mm_interconnect_0_leds_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_leds_s1_write:inv -> leds:write_n
 	signal rst_controller_reset_out_reset_ports_inv                      : std_logic;                     -- rst_controller_reset_out_reset:inv -> [jtag_uart:rst_n, nios:reset_n, seg1:reset_n]
 
 begin
+
+	button1 : component hello_world_qsys_button1
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => nios_debug_reset_request_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_button1_s1_address,     --                  s1.address
+			readdata => mm_interconnect_0_button1_s1_readdata,    --                    .readdata
+			in_port  => button1_external_connection_export        -- external_connection.export
+		);
+
+	button2 : component hello_world_qsys_button1
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => nios_debug_reset_request_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_button2_s1_address,     --                  s1.address
+			readdata => mm_interconnect_0_button2_s1_readdata,    --                    .readdata
+			in_port  => button2_external_connection_export        -- external_connection.export
+		);
+
+	button3 : component hello_world_qsys_button1
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => nios_debug_reset_request_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_button3_s1_address,     --                  s1.address
+			readdata => mm_interconnect_0_button3_s1_readdata,    --                    .readdata
+			in_port  => button3_external_connection_export        -- external_connection.export
+		);
+
+	button4 : component hello_world_qsys_button1
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => nios_debug_reset_request_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_button4_s1_address,     --                  s1.address
+			readdata => mm_interconnect_0_button4_s1_readdata,    --                    .readdata
+			in_port  => button4_external_connection_export        -- external_connection.export
+		);
 
 	jtag_uart : component hello_world_qsys_jtag_uart
 		port map (
@@ -337,6 +433,18 @@ begin
 			av_writedata   => mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata,       --                  .writedata
 			av_waitrequest => mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest,     --                  .waitrequest
 			av_irq         => irq_mapper_receiver0_irq                                       --               irq.irq
+		);
+
+	leds : component hello_world_qsys_leds
+		port map (
+			clk        => clk_clk,                                   --                 clk.clk
+			reset_n    => nios_debug_reset_request_reset_ports_inv,  --               reset.reset_n
+			address    => mm_interconnect_0_leds_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_leds_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_leds_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_leds_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_leds_s1_readdata,        --                    .readdata
+			out_port   => leds_external_connection_export            -- external_connection.export
 		);
 
 	nios : component hello_world_qsys_nios
@@ -456,6 +564,15 @@ begin
 			out_port   => seg6_external_connection_export            -- external_connection.export
 		);
 
+	switch : component hello_world_qsys_button1
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => nios_debug_reset_request_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_switch_s1_address,      --                  s1.address
+			readdata => mm_interconnect_0_switch_s1_readdata,     --                    .readdata
+			in_port  => switch_external_connection_export         -- external_connection.export
+		);
+
 	mm_interconnect_0 : component hello_world_qsys_mm_interconnect_0
 		port map (
 			clk_clk_clk                             => clk_clk,                                                   --                          clk_clk.clk
@@ -473,6 +590,14 @@ begin
 			nios_instruction_master_waitrequest     => nios_instruction_master_waitrequest,                       --                                 .waitrequest
 			nios_instruction_master_read            => nios_instruction_master_read,                              --                                 .read
 			nios_instruction_master_readdata        => nios_instruction_master_readdata,                          --                                 .readdata
+			button1_s1_address                      => mm_interconnect_0_button1_s1_address,                      --                       button1_s1.address
+			button1_s1_readdata                     => mm_interconnect_0_button1_s1_readdata,                     --                                 .readdata
+			button2_s1_address                      => mm_interconnect_0_button2_s1_address,                      --                       button2_s1.address
+			button2_s1_readdata                     => mm_interconnect_0_button2_s1_readdata,                     --                                 .readdata
+			button3_s1_address                      => mm_interconnect_0_button3_s1_address,                      --                       button3_s1.address
+			button3_s1_readdata                     => mm_interconnect_0_button3_s1_readdata,                     --                                 .readdata
+			button4_s1_address                      => mm_interconnect_0_button4_s1_address,                      --                       button4_s1.address
+			button4_s1_readdata                     => mm_interconnect_0_button4_s1_readdata,                     --                                 .readdata
 			jtag_uart_avalon_jtag_slave_address     => mm_interconnect_0_jtag_uart_avalon_jtag_slave_address,     --      jtag_uart_avalon_jtag_slave.address
 			jtag_uart_avalon_jtag_slave_write       => mm_interconnect_0_jtag_uart_avalon_jtag_slave_write,       --                                 .write
 			jtag_uart_avalon_jtag_slave_read        => mm_interconnect_0_jtag_uart_avalon_jtag_slave_read,        --                                 .read
@@ -480,6 +605,11 @@ begin
 			jtag_uart_avalon_jtag_slave_writedata   => mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata,   --                                 .writedata
 			jtag_uart_avalon_jtag_slave_waitrequest => mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest, --                                 .waitrequest
 			jtag_uart_avalon_jtag_slave_chipselect  => mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect,  --                                 .chipselect
+			leds_s1_address                         => mm_interconnect_0_leds_s1_address,                         --                          leds_s1.address
+			leds_s1_write                           => mm_interconnect_0_leds_s1_write,                           --                                 .write
+			leds_s1_readdata                        => mm_interconnect_0_leds_s1_readdata,                        --                                 .readdata
+			leds_s1_writedata                       => mm_interconnect_0_leds_s1_writedata,                       --                                 .writedata
+			leds_s1_chipselect                      => mm_interconnect_0_leds_s1_chipselect,                      --                                 .chipselect
 			nios_debug_mem_slave_address            => mm_interconnect_0_nios_debug_mem_slave_address,            --             nios_debug_mem_slave.address
 			nios_debug_mem_slave_write              => mm_interconnect_0_nios_debug_mem_slave_write,              --                                 .write
 			nios_debug_mem_slave_read               => mm_interconnect_0_nios_debug_mem_slave_read,               --                                 .read
@@ -524,7 +654,9 @@ begin
 			seg6_s1_write                           => mm_interconnect_0_seg6_s1_write,                           --                                 .write
 			seg6_s1_readdata                        => mm_interconnect_0_seg6_s1_readdata,                        --                                 .readdata
 			seg6_s1_writedata                       => mm_interconnect_0_seg6_s1_writedata,                       --                                 .writedata
-			seg6_s1_chipselect                      => mm_interconnect_0_seg6_s1_chipselect                       --                                 .chipselect
+			seg6_s1_chipselect                      => mm_interconnect_0_seg6_s1_chipselect,                      --                                 .chipselect
+			switch_s1_address                       => mm_interconnect_0_switch_s1_address,                       --                        switch_s1.address
+			switch_s1_readdata                      => mm_interconnect_0_switch_s1_readdata                       --                                 .readdata
 		);
 
 	irq_mapper : component hello_world_qsys_irq_mapper
@@ -619,6 +751,8 @@ begin
 	mm_interconnect_0_seg5_s1_write_ports_inv <= not mm_interconnect_0_seg5_s1_write;
 
 	mm_interconnect_0_seg6_s1_write_ports_inv <= not mm_interconnect_0_seg6_s1_write;
+
+	mm_interconnect_0_leds_s1_write_ports_inv <= not mm_interconnect_0_leds_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 
